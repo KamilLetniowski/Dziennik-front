@@ -4,7 +4,7 @@ import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-import { CarComponent } from '../car/car.component';
+import { PrzedmiotyComponent } from '../przedmioty/przedmioty.component';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ import { CarComponent } from '../car/car.component';
 export class CarService {
 
   baseUrl = 'http://localhost/api';
-  cars: CarComponent[];
+  cars: PrzedmiotyComponent[];
   constructor(private http: HttpClient) { }
   private handleError(error: HttpErrorResponse) {
     console.log(error);
@@ -20,7 +20,7 @@ export class CarService {
     // return an observable with a user friendly message
     return throwError('Error! something went wrong.');
   }
-  getAll(): Observable<CarComponent[]> {
+  getAll(): Observable<PrzedmiotyComponent[]> {
     return this.http.get(`${this.baseUrl}/list`).pipe(
       map((res) => {
         this.cars = res['data'];

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CarComponent } from './car/car.component';
+import { PrzedmiotyComponent } from './przedmioty/przedmioty.component';
 import { CarService } from './services/car.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { CarService } from './services/car.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
 
 
   constructor() {

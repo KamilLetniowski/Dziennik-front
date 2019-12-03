@@ -3,14 +3,14 @@ import {CarService} from '../services/car.service';
 
 @Component({
   selector: 'app-car',
-  templateUrl: './car.component.html',
-  styleUrls: ['./car.component.css']
+  templateUrl: './przedmioty.component.html',
+  styleUrls: ['./przedmioty.component.css']
 })
-export class CarComponent implements OnInit {
+export class PrzedmiotyComponent implements OnInit {
   model: any;
   price: any;
 
-  cars: CarComponent[];
+  cars: PrzedmiotyComponent[];
   error = '';
   success = '';
   constructor(private carService: CarService) {
@@ -22,7 +22,7 @@ export class CarComponent implements OnInit {
 
   getCars(): void {
     this.carService.getAll().subscribe(
-      (res: CarComponent[]) => {
+      (res: PrzedmiotyComponent[]) => {
         this.cars = res;
       },
       (err) => {
