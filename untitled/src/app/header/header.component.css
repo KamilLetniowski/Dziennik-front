@@ -1,0 +1,18 @@
+.header li a
+{
+  display: inline;
+  color: white !important;
+  text-decoration: none !important;
+}
+.header li {
+  display: inline;
+
+}
+.header {
+
+  width:100%;
+  background-color: red;
+  height:50px;
+
+}
+
