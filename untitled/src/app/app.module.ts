@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
+import { HttpClientModule } from '@angular/common/http'
 import {RouterModule, Routes} from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
@@ -12,6 +12,7 @@ import { LoggComponent } from './logg/logg.component';
 import { HomeComponent } from './home/home.component';
 import { KursyComponent } from './kursy/kursy.component';
 import { LoginComponent } from './login/login.component';
+import {KeycloakAngularModule, KeycloakService} from 'keycloak-angular';
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -38,10 +39,16 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
+    KeycloakAngularModule
     FormsModule
-
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializer,
+      multi: true,
+      deps: [KeycloakService]
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
