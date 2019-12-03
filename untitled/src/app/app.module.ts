@@ -13,14 +13,16 @@ import { HomeComponent } from './home/home.component';
 import { KursyComponent } from './kursy/kursy.component';
 import { LoginComponent } from './login/login.component';
 import {KeycloakAngularModule, KeycloakService} from 'keycloak-angular';
+import {initializer} from './app.init';
+import {AppAuthGuard} from './guard/app.authguard';
 
 const appRoutes: Routes = [
-  {path: 'home', component: HomeComponent},
-  {path: 'przedmioty', component: PrzedmiotyComponent},
-  {path: 'oceny', component: OcenyComponent},
-  {path: 'rejestracja', component: LoggComponent},
-  {path: '', component: LoginComponent},
-  {path: 'kursy', component: KursyComponent},
+  {path: '', component: HomeComponent, canActivate: [AppAuthGuard]},
+  {path: 'przedmioty', component: PrzedmiotyComponent, canActivate: [AppAuthGuard]},
+  {path: 'oceny', component: OcenyComponent,  canActivate: [AppAuthGuard]},
+  {path: 'rejestracja', component: LoggComponent },
+  {path: 'login', component: LoginComponent } ,
+  {path: 'kursy', component: KursyComponent,  canActivate: [AppAuthGuard]}
 ];
 
 
@@ -39,10 +41,11 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    KeycloakAngularModule
+    KeycloakAngularModule,
     FormsModule
   ],
   providers: [
+    AppAuthGuard,
     {
       provide: APP_INITIALIZER,
       useFactory: initializer,
