@@ -15,10 +15,19 @@ import { LoginComponent } from './login/login.component';
 import {KeycloakAngularModule, KeycloakService} from 'keycloak-angular';
 import {initializer} from './app.init';
 import {AppAuthGuard} from './guard/app.authguard';
+import { PrzedmiotyDatyComponent } from './przedmioty-daty/przedmioty-daty.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AppAuthGuard]},
   {path: 'przedmioty', component: PrzedmiotyComponent, canActivate: [AppAuthGuard]},
+  {path: 'wybor_przedmioty', component: PrzedmiotyDatyComponent, canActivate: [AppAuthGuard],
+  data:
+    {
+      name: '',
+      leader: '',
+      class_id: ''
+    }
+  },
   {path: 'oceny', component: OcenyComponent,  canActivate: [AppAuthGuard]},
   {path: 'rejestracja', component: LoggComponent },
   {path: 'login', component: LoginComponent } ,
@@ -35,7 +44,8 @@ const appRoutes: Routes = [
     LoggComponent,
     HomeComponent,
     KursyComponent,
-    LoginComponent
+    LoginComponent,
+    PrzedmiotyDatyComponent
   ],
   imports: [
     BrowserModule,

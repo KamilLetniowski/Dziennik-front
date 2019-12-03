@@ -12,12 +12,17 @@
         <tr class="table100-head">
           <th class="column1">Przedmiot</th>
           <th class="column2">Prowadzący</th>
+          <th >id</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let item of cars">
+        <tr *ngFor="let item of cars" routerLink="/wybor_przedmioty"
+            [queryParams]="{name: item.model,
+            leader: item.price,
+            class_id: item.classId}" >
           <td >{{item.model}}</td>
           <td >{{item.price}}</td>
+          <td> {{item.classId}}</td>
         </tr>
 
         </tbody>

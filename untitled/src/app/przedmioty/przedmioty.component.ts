@@ -9,6 +9,7 @@ import {CarService} from '../services/car.service';
 export class PrzedmiotyComponent implements OnInit {
   model: any;
   price: any;
+  classId: any;
 
   cars: PrzedmiotyComponent[];
   error = '';
@@ -18,12 +19,14 @@ export class PrzedmiotyComponent implements OnInit {
 
   ngOnInit() {
     this.getCars();
+    console.log(this.cars);
   }
 
   getCars(): void {
     this.carService.getAll().subscribe(
       (res: PrzedmiotyComponent[]) => {
         this.cars = res;
+        console.log(res);
       },
       (err) => {
         this.error = err;
