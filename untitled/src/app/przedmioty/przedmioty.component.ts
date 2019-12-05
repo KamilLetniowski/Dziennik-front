@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CarService} from '../services/car.service';
+import {PrzedmiotyData} from '../struktury/przedmioty-data';
 
 @Component({
   selector: 'app-car',
@@ -7,11 +8,7 @@ import {CarService} from '../services/car.service';
   styleUrls: ['./przedmioty.component.css']
 })
 export class PrzedmiotyComponent implements OnInit {
-  model: any;
-  price: any;
-  classId: any;
-
-  cars: PrzedmiotyComponent[];
+  cars: PrzedmiotyData[] = [];
   error = '';
   success = '';
   constructor(private carService: CarService) {
@@ -24,9 +21,8 @@ export class PrzedmiotyComponent implements OnInit {
 
   getCars(): void {
     this.carService.getAll().subscribe(
-      (res: PrzedmiotyComponent[]) => {
-        this.cars = res;
-        console.log(res);
+      (res: PrzedmiotyData[]) => {
+      this.cars = res;
       },
       (err) => {
         this.error = err;

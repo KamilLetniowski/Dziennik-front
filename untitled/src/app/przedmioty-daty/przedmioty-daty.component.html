@@ -1,1 +1,36 @@
-<p>przedmioty-daty works!</p>
+<app-header></app-header>
+<div *ngIf="error">{{error}}</div>
+<div *ngIf="success">{{success}}</div>
+
+
+<div class="limiter" style="margin-top: 100px">
+  <div class="container-table100">
+    <div class="wrap-table100">
+      <div class="table100">
+        <table>
+          <thead>
+          <tr class="table100-head">
+            <th class="column1">Przedmiot</th>
+            <th class="column2">Prowadzący</th>
+            <th >id</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let sub of subjectsDates">
+            <td >{{sub.name}}</td>
+            <td >{{sub.date}}</td>
+            <td> {{sub.class_id}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<div id="theList">-->
+<!--  <h2>The list</h2>-->
+<!--  <ul>-->
+<li *ngFor="let item of cars">{{item.name}} | {{item.leader}} </li>
+<!--  </ul>-->
+<!--</div>-->

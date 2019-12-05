@@ -20,7 +20,7 @@ import { PrzedmiotyDatyComponent } from './przedmioty-daty/przedmioty-daty.compo
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AppAuthGuard]},
   {path: 'przedmioty', component: PrzedmiotyComponent, canActivate: [AppAuthGuard]},
-  {path: 'wybor_przedmioty', component: PrzedmiotyDatyComponent, canActivate: [AppAuthGuard],
+  {path: 'przedmioty_daty', component: PrzedmiotyDatyComponent, canActivate: [AppAuthGuard],
   data:
     {
       name: '',

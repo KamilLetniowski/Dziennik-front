@@ -16,12 +16,12 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let item of cars" routerLink="/wybor_przedmioty"
-            [queryParams]="{name: item.model,
-            leader: item.price,
+        <tr *ngFor="let item of cars" routerLink="/przedmioty_daty"
+            [queryParams]="{name: item.name,
+            leader: item.leader,
             class_id: item.classId}" >
-          <td >{{item.model}}</td>
-          <td >{{item.price}}</td>
+          <td >{{item.name}}</td>
+          <td >{{item.leader}}</td>
           <td> {{item.classId}}</td>
         </tr>
 
@@ -35,6 +35,6 @@
 <!--<div id="theList">-->
 <!--  <h2>The list</h2>-->
 <!--  <ul>-->
-    <li *ngFor="let item of cars">{{item.model}} | {{item.price}} </li>
+    <li *ngFor="let item of cars">{{item.name}} | {{item.leader}} </li>
 <!--  </ul>-->
 <!--</div>-->
