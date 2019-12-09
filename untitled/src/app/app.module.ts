@@ -1,37 +1,40 @@
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule} from '@angular/platform-browser';
 import {APP_INITIALIZER, NgModule} from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 
-import { AppComponent } from './app.component';
-import { PrzedmiotyComponent } from './przedmioty/przedmioty.component';
-import { OcenyComponent } from './oceny/oceny.component';
-import { HeaderComponent } from './header/header.component';
-import { LoggComponent } from './logg/logg.component';
-import { HomeComponent } from './home/home.component';
-import { KursyComponent } from './kursy/kursy.component';
-import { LoginComponent } from './login/login.component';
+import {AppComponent} from './app.component';
+import {PrzedmiotyComponent} from './przedmioty/przedmioty.component';
+import {OcenyComponent} from './oceny/oceny.component';
+import {HeaderComponent} from './header/header.component';
+import {LoggComponent} from './logg/logg.component';
+import {HomeComponent} from './home/home.component';
+import {KursyComponent} from './kursy/kursy.component';
+import {LoginComponent} from './login/login.component';
 import {KeycloakAngularModule, KeycloakService} from 'keycloak-angular';
 import {initializer} from './app.init';
 import {AppAuthGuard} from './guard/app.authguard';
-import { PrzedmiotyDatyComponent } from './przedmioty-daty/przedmioty-daty.component';
+import {PrzedmiotyDatyComponent} from './przedmioty-daty/przedmioty-daty.component';
+import {CourseManagementComponent} from './course-management/course-management.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AppAuthGuard]},
   {path: 'przedmioty', component: PrzedmiotyComponent, canActivate: [AppAuthGuard]},
-  {path: 'przedmioty_daty', component: PrzedmiotyDatyComponent, canActivate: [AppAuthGuard],
-  data:
-    {
-      name: '',
-      leader: '',
-      class_id: ''
-    }
+  {
+    path: 'przedmioty_daty', component: PrzedmiotyDatyComponent, canActivate: [AppAuthGuard],
+    data:
+      {
+        name: '',
+        leader: '',
+        class_id: ''
+      }
   },
-  {path: 'oceny', component: OcenyComponent,  canActivate: [AppAuthGuard]},
-  {path: 'rejestracja', component: LoggComponent },
-  {path: 'login', component: LoginComponent } ,
-  {path: 'kursy', component: KursyComponent,  canActivate: [AppAuthGuard]}
+  {path: 'oceny', component: OcenyComponent, canActivate: [AppAuthGuard]},
+  {path: 'rejestracja', component: LoggComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'kursy', component: KursyComponent, canActivate: [AppAuthGuard]},
+  {path: 'zarzadzanie_kursem', component: CourseManagementComponent, canActivate: [AppAuthGuard]}
 ];
 
 
@@ -45,7 +48,8 @@ const appRoutes: Routes = [
     HomeComponent,
     KursyComponent,
     LoginComponent,
-    PrzedmiotyDatyComponent
+    PrzedmiotyDatyComponent,
+    CourseManagementComponent
   ],
   imports: [
     BrowserModule,
@@ -64,4 +68,5 @@ const appRoutes: Routes = [
     }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
