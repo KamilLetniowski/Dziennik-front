@@ -1,6 +1,6 @@
 <app-header></app-header>
-<div *ngIf="error">{{error}}</div>
-<div *ngIf="success">{{success}}</div>
+<!--<div *ngIf="error">{{error}}</div>-->
+<!--<div *ngIf="success">{{success}}</div>-->
 
 
 <div class="limiter" style="margin-top: 100px">
@@ -11,20 +11,16 @@
           <thead>
           <tr class="table100-head">
             <th class="column1">Przedmiot</th>
-            <th class="column2">Prowadzący</th>
+            <th class="column2">Data</th>
             <th >id</th>
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let item of cars" routerLink="/przedmioty_daty"
-              [queryParams]="{name: item.name,
-            leader: item.leader,
-            class_id: item.classId}" >
-            <td >{{item.name}}</td>
-            <td >{{item.leader}}</td>
-            <td> {{item.classId}}</td>
+          <tr *ngFor="let sub of subjectsDates">
+            <td >{{sub.name}}</td>
+            <td >{{sub.date}}</td>
+            <td> {{sub.class_id}}</td>
           </tr>
-
           </tbody>
         </table>
       </div>
@@ -35,6 +31,6 @@
 <!--<div id="theList">-->
 <!--  <h2>The list</h2>-->
 <!--  <ul>-->
-<!--<li *ngFor="let item of cars">{{item.name}} | {{item.leader}} </li>-->
+<li *ngFor="let item of cars">{{item.name}} | {{item.leader}} </li>
 <!--  </ul>-->
 <!--</div>-->

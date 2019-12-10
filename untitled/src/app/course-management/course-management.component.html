@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+<div class="limiter" style="margin-top: 100px">
+  <div class="container-table100">
+    <h2> Zarządzanie kursem: {{cname}}  Prowadzący: {{cleader}}</h2>
+
+
+
+    <div class="wrap-table100">
+      <div class="table100">
+        <table>
+          <thead>
+          <tr class="table100-head">
+            <th class="column1">Uczen</th>
+            <th class="column2">Klasa</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let sub of courseAtendant">
+            <td >{{sub.name}}</td>
+            <td >{{sub.class}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

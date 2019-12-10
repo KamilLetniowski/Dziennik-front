@@ -12,14 +12,31 @@ import { LoggComponent } from './logg/logg.component';
 import { HomeComponent } from './home/home.component';
 import { KursyComponent } from './kursy/kursy.component';
 import { LoginComponent } from './login/login.component';
+import { PrzedmiotyDatyComponent } from './przedmioty-daty/przedmioty-daty.component';
+import { KursyOsobyComponent } from './kursy-osoby/kursy-osoby.component';
+import { CourseManagementComponent } from './course-management/course-management.component';
 
 const appRoutes: Routes = [
-  {path: 'home', component: HomeComponent},
+  {path: '', component: HomeComponent},
   {path: 'przedmioty', component: PrzedmiotyComponent},
+  {path: 'przedmioty_daty', component: PrzedmiotyDatyComponent,
+    data:
+      {
+        name: '',
+        leader: '',
+        class_id: ''
+      }
+  },
   {path: 'oceny', component: OcenyComponent},
-  {path: 'rejestracja', component: LoggComponent},
-  {path: '', component: LoginComponent},
+  {path: 'rejestracja', component: LoggComponent },
+  {path: 'login', component: LoginComponent } ,
   {path: 'kursy', component: KursyComponent},
+  {path: 'zarzadzanie_kursem', component: CourseManagementComponent,
+    data:
+      {
+        cId: '',
+      }
+  }
 ];
 
 
@@ -32,7 +49,10 @@ const appRoutes: Routes = [
     LoggComponent,
     HomeComponent,
     KursyComponent,
-    LoginComponent
+    LoginComponent,
+    PrzedmiotyDatyComponent,
+    KursyOsobyComponent,
+    CourseManagementComponent
   ],
   imports: [
     BrowserModule,

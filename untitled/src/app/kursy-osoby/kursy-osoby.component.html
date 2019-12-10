@@ -1,0 +1,28 @@
+<app-header></app-header>
+<!--<div *ngIf="error">{{error}}</div>-->
+<!--<div *ngIf="success">{{success}}</div>-->
+
+
+<div class="limiter" style="margin-top: 100px">
+  <div class="container-table100">
+    <div class="add" style="width: 600px; align-items: center">
+    <div class="wrap-table100">
+      <div class="table100">
+        <table>
+          <thead>
+          <tr class="table100-head">
+            <th class="column1">Kursy</th>
+            <th class="column2">Prowadzący</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let sub of coursePack">
+            <td >{{sub.name}}</td>
+            <td >{{sub.leader}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

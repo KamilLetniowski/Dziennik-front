@@ -1,1 +1,41 @@
 <app-header></app-header>
+<!--<div *ngIf="error">{{error}}</div>-->
+<!--<div *ngIf="success">{{success}}</div>-->
+
+
+<div class="limiter" style="margin-top: 100px">
+  <div class="container-table100">
+    <div class="add" style="width: 600px; align-items: center">
+      <form name="theFormLog" class="form-box">
+
+        <input [(ngModel)]="cName" placeholder="Podaj nazwę kursu" name="cName"
+               type="text" style="display: inline-block; width: 250px; " class="form-control">
+
+        <input [(ngModel)]="cLeader" placeholder="Podaj prowadzącego" name="cLeader"
+               type="text" style="display: inline-block; width: 250px;" class="form-control">
+        <input type="submit" (click)="addCourse()" class="btn btn-primary" style="text-align: center">
+      </form>
+    </div>
+
+    <div class="wrap-table100">
+      <div class="table100">
+        <table>
+          <thead>
+          <tr class="table100-head">
+            <th class="column1">Kursy</th>
+            <th class="column2">Prowadzący</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let sub of coursePack" routerLink="/zarzadzanie_kursem"
+              [queryParams]="{cleader: sub.leader,
+            cname: sub.name, cId: sub.id}">
+            <td>{{sub.name}}</td>
+            <td>{{sub.leader}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

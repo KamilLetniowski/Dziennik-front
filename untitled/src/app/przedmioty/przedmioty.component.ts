@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CarService} from '../services/car.service';
+import {PrzedmiotyData} from '../struktury/przedmioty-data';
+
 
 @Component({
   selector: 'app-car',
@@ -7,10 +9,7 @@ import {CarService} from '../services/car.service';
   styleUrls: ['./przedmioty.component.css']
 })
 export class PrzedmiotyComponent implements OnInit {
-  model: any;
-  price: any;
-
-  cars: PrzedmiotyComponent[];
+  cars: PrzedmiotyData[] = [];
   error = '';
   success = '';
   constructor(private carService: CarService) {
@@ -18,11 +17,12 @@ export class PrzedmiotyComponent implements OnInit {
 
   ngOnInit() {
     this.getCars();
+    console.log(this.cars);
   }
 
   getCars(): void {
     this.carService.getAll().subscribe(
-      (res: PrzedmiotyComponent[]) => {
+      (res: PrzedmiotyData[]) => {
         this.cars = res;
       },
       (err) => {
@@ -31,3 +31,4 @@ export class PrzedmiotyComponent implements OnInit {
     );
   }
 }
+
