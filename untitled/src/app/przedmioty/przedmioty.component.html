@@ -5,6 +5,31 @@
 
 <div class="limiter" style="margin-top: 100px">
   <div class="container-table100">
+    <div class="add" style="width: 600px; align-items: center">
+      <form name="theFormLog" class="form-box">
+
+        <input [(ngModel)]="sName" placeholder="Podaj nazwę kursu" name="cName"
+               type="text" style="display: inline-block; width: 250px; " class="form-control">
+
+        <input [(ngModel)]="sLeader" placeholder="Podaj prowadzącego" name="cLeader"
+               type="text" style="display: inline-block; width: 250px;" class="form-control">
+
+        <input [(ngModel)]="sStartDate" placeholder="Podaj prowadzącego" name="cLeader"
+               type="date" style="display: inline-block; width: 250px;" class="form-control">
+
+        <input [(ngModel)]="sEndDate" placeholder="Podaj prowadzącego" name="cLeader"
+               type="date" style="display: inline-block; width: 250px;" class="form-control">
+
+        <select name="sClass" [(ngModel)]="sClass">
+          <option value="">Wybierz klasę</option>
+          <option value="1A">1A</option>
+          <option value="1B">1B</option>
+          <option value="1C">1C</option>
+        </select>
+
+        <input type="submit" (click)="addSubject()" class="btn btn-primary" style="text-align: center">
+      </form>
+    </div>
     <div class="wrap-table100">
       <div class="table100">
         <table>

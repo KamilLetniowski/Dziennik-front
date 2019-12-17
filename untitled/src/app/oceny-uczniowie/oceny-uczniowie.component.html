@@ -1,0 +1,63 @@
+<app-header></app-header>
+<!--<div *ngIf="error">{{error}}</div>-->
+<!--<div *ngIf="success">{{success}}</div>-->
+
+
+<div class="limiter" style="margin-top: 100px">
+  <div class="container-table100">
+    <h2>Oceny z przedmiotu: {{subject.name}} dla klasy {{subject.class}}  </h2>
+    <div class="wrap-table100">
+      <div class="table100">
+        <table>
+          <thead>
+          <tr class="table100-head">
+            <th class="column1">Imię</th>
+            <th class="column2">Ocena</th>
+            <th class="column2">Średnia ocena</th>
+            <th class="column2">Dodaj Ocene</th>
+            <th class="column2">Edycja</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let sub of PupilList; let i=index">
+              <td >{{sub.name}}</td>
+              <td >{{sub.grade}}</td>
+              <td >{{sub.average}}</td>
+              <td>
+                <select [(ngModel)]="grade[i]" (ngModelChange)="test(sub.id)" name="type">
+                  <option value="">Brak</option>
+                  <option value="1">1</option>
+                  <option value="1.5">1+</option>
+                  <option value="2">2</option>
+                  <option value="2.5">2+</option>
+                  <option value="3">3</option>
+                  <option value="3.5">3+</option>
+                  <option value="4">4</option>
+                  <option value="4.5">4+</option>
+                  <option value="5">5</option>
+                  <option value="5.5">5+</option>
+                  <option value="6">6</option>
+                </select>
+            </td>
+          <td routerLink="/edycja-oceny"
+              [queryParams]="{id: sub.id, name:subject.name, pname: sub.name}"><input type="button" value="Edytuj  oceny">
+          </td>
+          </tr>
+          <tr>      <select [(ngModel)]="type" name="type">
+            <option value="0.5">Kartkówka</option>
+            <option value="1">Sprawdzian</option>
+            <option value="0.5">Odpowiedź</option>
+          </select>
+            <input type="text" [(ngModel)]="gradeName" placeholder="Typ sprawdzenia">
+            <input (click)="addGrade()" type="button" value="Dodaj ocenę">
+
+          </tr>
+
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>
+

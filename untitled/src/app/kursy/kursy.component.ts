@@ -16,6 +16,7 @@ export class KursyComponent implements OnInit {
   course: Kursy = new Kursy();
 
   coursePack: any;
+  private courseAdd: any;
 
   constructor(private courseService: KursyService) {
   }
@@ -25,7 +26,7 @@ export class KursyComponent implements OnInit {
       ((res) => this.coursePack = res));
   }
 
-  addCours() {
+  addCourse() {
     this.courseService.addNewCourse(this.cName, this.cLeader).subscribe();
   }
 

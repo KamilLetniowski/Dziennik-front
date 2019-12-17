@@ -1,0 +1,34 @@
+<app-header></app-header>
+<!--<div *ngIf="error">{{error}}</div>-->
+<!--<div *ngIf="success">{{success}}</div>-->
+
+
+<div class="limiter" style="margin-top: 100px">
+  <div class="container-table100">
+    <h2>Oceny z przedmiotu: {{grade.name}} dla ucznia {{grade.pname}}  </h2>
+    <div class="wrap-table100">
+      <div class="table100">
+        <table>
+          <thead>
+          <tr class="table100-head">
+            <th class="column1">Typ sprawdzenia widzy </th>
+            <th class="column2">Ocena</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let sub of PupilGrades; let i=index">
+            <td >{{sub.type}}</td>
+            <input hidden [(ngModel)]="gradeId" name="id" value="{{sub.id}}">
+            <td ><input type="text" [(ngModel)]="gradeValue[i]" (ngModelChange)="test(sub.id)" style="border: solid 1px black !important" value="{{sub.grade}}"></td>
+          </tr>
+          <tr><input type="button" (click)="gradeUpdate()" value="Aktualizuj">
+          </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -22,10 +22,9 @@ export class PrzedmiotyDatyService {
     const params = {name: subjectData.name, leader: subjectData.leader, class_id: subjectData.classId};
     return this.httpClient.get(`${this.baseUrl}/subject_date_list`, {params}).pipe(
       map((res) => {
-        console.log("w serwisie");
-        console.log(res);
+        // console.log("w serwisie");
+        // console.log(res);
         this.subjectDates = res['data'];
-        console.log(this.subjectDates);
         return this.subjectDates;
       }));
   }

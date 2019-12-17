@@ -15,10 +15,28 @@ import { LoginComponent } from './login/login.component';
 import { PrzedmiotyDatyComponent } from './przedmioty-daty/przedmioty-daty.component';
 import { KursyOsobyComponent } from './kursy-osoby/kursy-osoby.component';
 import { CourseManagementComponent } from './course-management/course-management.component';
+import { PrzedmiotyDatyObecnosciComponent } from './przedmioty-daty-obecnosci/przedmioty-daty-obecnosci.component';
+import { OcenyUczniowieComponent } from './oceny-uczniowie/oceny-uczniowie.component';
+import { EdycjaOcenComponent } from './edycja-ocen/edycja-ocen.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'przedmioty', component: PrzedmiotyComponent},
+  {path: 'edycja-oceny', component: EdycjaOcenComponent,
+    data:
+      {
+        name: '',
+        pname: '',
+        id: ''
+      }},
+  {path: 'obecnosci', component: PrzedmiotyComponent},
+  {path: 'oceny_uczniowie', component: OcenyUczniowieComponent},
+  {path: 'przedmioty_daty_obecnosci', component: PrzedmiotyDatyObecnosciComponent,
+    data:
+      {
+        name: '',
+        date: '',
+        class_id: ''
+      }},
   {path: 'przedmioty_daty', component: PrzedmiotyDatyComponent,
     data:
       {
@@ -52,7 +70,10 @@ const appRoutes: Routes = [
     LoginComponent,
     PrzedmiotyDatyComponent,
     KursyOsobyComponent,
-    CourseManagementComponent
+    CourseManagementComponent,
+    PrzedmiotyDatyObecnosciComponent,
+    OcenyUczniowieComponent,
+    EdycjaOcenComponent
   ],
   imports: [
     BrowserModule,

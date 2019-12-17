@@ -1,10 +1,25 @@
 <app-header></app-header>
 
 <div class="limiter" style="margin-top: 100px">
+  <h2> Zarządzanie kursem: {{cname}}  Prowadzący: {{cleader}}</h2>
   <div class="container-table100">
-    <h2> Zarządzanie kursem: {{cname}}  Prowadzący: {{cleader}}</h2>
 
 
+    <div class="add" style="width: 600px; align-items: center; margin-top: 100px">
+<!--      <form name="theFormLog" class="form-box">-->
+
+        <select name="pName" [(ngModel)]="pName">
+          <option *ngFor="let sub of pupilShow" value="{{sub.name}}">{{sub.name}} {{sub.class_id}}</option>
+        </select>
+
+<!--        <input [(ngModel)]="pName" placeholder="Podaj nazwę kursu" name="cName"-->
+<!--               type="text" style="display: inline-block; width: 250px; " class="form-control">-->
+
+<!--        <input [(ngModel)]="pCourse" placeholder="Podaj prowadzącego" name="cLeader"-->
+<!--               type="text" style="display: inline-block; width: 250px;" class="form-control">-->
+        <input type="submit" (click)="addPupilCourse()" class="btn btn-primary" style="text-align: center">
+<!--      </form>-->
+    </div>
 
     <div class="wrap-table100">
       <div class="table100">

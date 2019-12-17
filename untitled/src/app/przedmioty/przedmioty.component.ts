@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CarService} from '../services/car.service';
 import {PrzedmiotyData} from '../struktury/przedmioty-data';
 
@@ -12,6 +12,13 @@ export class PrzedmiotyComponent implements OnInit {
   cars: PrzedmiotyData[] = [];
   error = '';
   success = '';
+  sName = '';
+  sLeader = '';
+  sStartDate = '';
+  sEndDate = '';
+  sClass = '';
+
+
   constructor(private carService: CarService) {
   }
 
@@ -30,5 +37,11 @@ export class PrzedmiotyComponent implements OnInit {
       }
     );
   }
+
+  addSubject(): void {
+
+    this.carService.addNewSubject(this.sName, this.sLeader, this.sStartDate, this.sEndDate, this.sClass).subscribe();
+  }
+
 }
 

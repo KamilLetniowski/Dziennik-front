@@ -10,26 +10,28 @@
         <table>
           <thead>
           <tr class="table100-head">
-            <th class="column1">Przedmiot</th>
-            <th class="column2">Data</th>
-            <th >id</th>
+            <th class="column1">Imię</th>
+            <th class="column2">Klasa</th>
+            <th class="column2">Obecnośc</th>
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let sub of subjectsDates" routerLink="/przedmioty_daty_obecnosci"
-              [queryParams]="{name: sub.name,
-            date: sub.date,
-            class_id: sub.class_id}"
-          >
+          <tr *ngFor="let sub of PupilList">
             <td >{{sub.name}}</td>
-            <td >{{sub.date}}</td>
-            <td> {{sub.class_id}}</td>
+            <td> {{sub.classId}}</td>
+<!--            <td><input type="checkbox" [checked]="false"  [(ngModel)]="sub.check" name="check"></td>-->
+            <td><input type="checkbox"  checked [(ngModel)]="sub.presence" >
+              </td>
+
+
           </tr>
+          <tr><input type="submit" value="Aktualizuj" (click)="presenceCheck()"></tr>
+
           </tbody>
         </table>
+
       </div>
     </div>
   </div>
 </div>
-
 

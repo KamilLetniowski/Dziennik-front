@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpErrorResponse, HttpParams} from '@angular/common/http';
 
-import { Observable, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import {Observable, throwError} from 'rxjs';
+import {map, catchError} from 'rxjs/operators';
 
-import { PrzedmiotyComponent } from '../przedmioty/przedmioty.component';
+import {PrzedmiotyComponent} from '../przedmioty/przedmioty.component';
 import {PrzedmiotyData} from '../struktury/przedmioty-data';
 
 @Injectable({
@@ -14,13 +14,17 @@ export class CarService {
 
   baseUrl = 'http://localhost/apsi';
   cars: PrzedmiotyData[];
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient) {
+  }
+
   private handleError(error: HttpErrorResponse) {
     console.log(error);
 
     // return an observable with a user friendly message
     return throwError('Error! something went wrong.');
   }
+
   getAll(): Observable<PrzedmiotyData[]> {
     return this.http.get(`${this.baseUrl}/subject_list`).pipe(
       map((res) => {
@@ -29,6 +33,16 @@ export class CarService {
         return this.cars;
       }),
       catchError(this.handleError));
+  }
+
+  addNewSubject(sName: string, sLeader: string, sStartDate: any, sEndDate: any, sClass: string) {
+    return this.http.post(`${this.baseUrl}/subject_add`, {
+      sname: sName,
+      sleader: sLeader,
+      sstartdate: sStartDate,
+      senddate: sEndDate,
+      sclass: sClass,
+    });
   }
 }
 

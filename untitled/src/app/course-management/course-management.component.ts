@@ -21,16 +21,36 @@ export class CourseManagementComponent implements OnInit {
   constructor(private route: ActivatedRoute, private uczniowieServis: KursyService) {
   }
 
+  public pName = '';
+  pCourse = '';
+  private coursePupilAdd: any;
+  private pupilShow: any;
+  private pupilId: any;
+
   ngOnInit() {
     this.route.queryParamMap.subscribe(params => {
       this.cname = params.get('cname');
       this.cleader = params.get('cleader');
       this.course.id = params.get('cId');
     });
-    console.log(this.course);
     this.courseAtendant = this.uczniowieServis.getCoursePupilList(this.course).subscribe(
       ((res) => this.courseAtendant = res)
     );
+    this.showPupil();
   }
+
+  addPupilCourse() {
+    this.pupilId = this.pupilShow.find(x => x.name === this.pName).id;
+    console.log(this.pupilId);
+    this.coursePupilAdd = this.uczniowieServis.addNewPupilCourse(this.pupilId, this.course.id).subscribe();
+  }
+
+  showPupil() {
+    this.uczniowieServis.showPupilCourse().subscribe((res) => {
+      this.pupilShow = res;
+      console.log(res);
+    });
+  }
+
 
 }
