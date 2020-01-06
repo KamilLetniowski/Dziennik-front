@@ -15,6 +15,7 @@ export class AppAuthGuard extends KeycloakAuthGuard {
         return;
       }
       const requiredRoles = route.data.roles;
+      console.log(requiredRoles);
       let granted = false;
       if (!requiredRoles || requiredRoles.length === 0) {
         granted = true;
@@ -28,7 +29,7 @@ export class AppAuthGuard extends KeycloakAuthGuard {
       }
 
       if (granted === false) {
-        await this.router.navigate(['/accesDenied']);
+        await this.router.navigate(['/']);
       }
       resolve(granted);
 

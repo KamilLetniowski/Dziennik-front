@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {Pupil} from '../struktury/Pupil';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {GradeTab} from '../struktury/gradeTab';
+import {Pupil} from '../struktury/Pupil';
 
 @Injectable({
   providedIn: 'root'
