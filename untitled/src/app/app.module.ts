@@ -18,6 +18,8 @@ import { CourseManagementComponent } from './course-management/course-management
 import { PrzedmiotyDatyObecnosciComponent } from './przedmioty-daty-obecnosci/przedmioty-daty-obecnosci.component';
 import { OcenyUczniowieComponent } from './oceny-uczniowie/oceny-uczniowie.component';
 import { EdycjaOcenComponent } from './edycja-ocen/edycja-ocen.component';
+import { UczniowieComponent } from './uczniowie/uczniowie.component';
+import { AdminComponent } from './admin/admin.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -47,7 +49,9 @@ const appRoutes: Routes = [
   },
   {path: 'oceny', component: OcenyComponent},
   {path: 'rejestracja', component: LoggComponent },
+  {path: 'admin', component: AdminComponent },
   {path: 'login', component: LoginComponent } ,
+  {path: 'uczniowie', component: UczniowieComponent } ,
   {path: 'kursy', component: KursyComponent},
   {path: 'zarzadzanie_kursem', component: CourseManagementComponent,
     data:
@@ -73,7 +77,9 @@ const appRoutes: Routes = [
     CourseManagementComponent,
     PrzedmiotyDatyObecnosciComponent,
     OcenyUczniowieComponent,
-    EdycjaOcenComponent
+    EdycjaOcenComponent,
+    UczniowieComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

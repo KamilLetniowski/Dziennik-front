@@ -1,0 +1,67 @@
+<app-header></app-header>
+<!--<div *ngIf="error">{{error}}</div>-->
+<!--<div *ngIf="success">{{success}}</div>-->
+
+
+<div class="limiter" style="margin-top: 100px">
+  <div class="container-table100">
+    <!--    <div class="form-group">-->
+    <!--      <input type="text"-->
+    <!--             class="form-control"-->
+    <!--             name="name"-->
+    <!--             [(ngModel)]="name"-->
+    <!--             placeholder="Imię i nazwisko ucznia">-->
+    <!--    </div>-->
+
+
+    <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="500">
+      <form  name="theFormLog" class="form-box">
+
+        <h3 class="h4 text-black mb-4" style="display: inline-block !important; "><a routerLink="/uczniowie">Uczniowie</a></h3>
+        <h3 class="h4 text-black mb-4" style="float:right;display: inline-block !important; "><a routerLink="/nauczyciele">Nauczyciele</a></h3>
+
+        <div class="form-group">
+          <input type="text"
+                 class="form-control"
+                 name="name"
+                 [(ngModel)]="name"
+                 placeholder="Imię i nazwisko nauczyciela">
+        </div>
+        <div class="form-group mb-4">
+          <input type="password"
+                 class="form-control"
+                 name="priceSEC"
+                 required
+                 [(ngModel)]="pass"
+                 placeholder="Hasło">
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary btn-pill" value="Dodaj" (click)="create()">
+        </div>
+      </form>
+
+    </div>
+
+
+    <div class="wrap-table100">
+      <div class="table100">
+        <table>
+          <thead>
+          <tr class="table100-head">
+            <th class="column1">Nauczyciel</th>
+            <th class="column2">Hasło</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let sub of TeacherList">
+            <td >{{sub.name}}</td>
+            <td> {{sub.pass}}</td>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>
+

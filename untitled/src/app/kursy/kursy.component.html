@@ -8,10 +8,10 @@
     <div class="add" style="width: 600px; align-items: center">
       <form name="theFormLog" class="form-box">
 
-        <input [(ngModel)]="cName" placeholder="Podaj nazwę kursu" name="cName"
+        <input [(ngModel)]="cName" autocomplete="off" placeholder="Podaj nazwę kursu" name="cName"
                type="text" style="display: inline-block; width: 250px; " class="form-control">
 
-        <input [(ngModel)]="cLeader" placeholder="Podaj prowadzącego" name="cLeader"
+        <input [(ngModel)]="cLeader" autocomplete="off" placeholder="Podaj prowadzącego" name="cLeader"
                type="text" style="display: inline-block; width: 250px;" class="form-control">
         <input type="submit" (click)="addCourse()" class="btn btn-primary" style="text-align: center">
       </form>

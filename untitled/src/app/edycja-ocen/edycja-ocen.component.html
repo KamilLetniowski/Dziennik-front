@@ -17,7 +17,7 @@
           </thead>
           <tbody>
           <tr *ngFor="let sub of PupilGrades; let i=index">
-            <td >{{sub.type}}</td>
+            <td ><input type="text" [value]="sub.type"></td>
             <input hidden [(ngModel)]="gradeId" name="id" value="{{sub.id}}">
             <td ><input type="text" [(ngModel)]="gradeValue[i]" (ngModelChange)="test(sub.id)" style="border: solid 1px black !important" value="{{sub.grade}}"></td>
           </tr>
